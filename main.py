@@ -13,8 +13,12 @@ REVIEW = (
     "and never once said sorry. One star."
 )
 
+MAX_CHARS = 160
+
 
 def main() -> None:
+    assert 1 <= len(REVIEW) <= MAX_CHARS, "review must be 1-160 characters"
+    assert "\n" not in REVIEW, "review must be a single line"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(REVIEW)
